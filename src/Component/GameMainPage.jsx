@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Score from './Score';
 import PaperImage from "./images/Paper.png";
 import RockImage from "./images/Rock.png";
-import ScissorImage from "./images/Scissors.png";
+import ScissorImage from "./images/Scissor.png";
 import StartImage from "./images/StartImage.png";
 import "./GameMainPage.css";
 
@@ -67,9 +67,9 @@ export default function GameMainPage() {
             setDraw(true);
             setRoundWinner('Draw');
         } else if (
-            (userOption === 'Rock' && computerOptionName === 'Scissors') ||
+            (userOption === 'Rock' && computerOptionName === 'Scissor') ||
             (userOption === 'Paper' && computerOptionName === 'Rock') ||
-            (userOption === 'Scissors' && computerOptionName === 'Paper')
+            (userOption === 'Scissor' && computerOptionName === 'Paper')
         ) {
             setDraw(false); 
             setScore(prevScore => ({ ...prevScore, userScore: prevScore.userScore + 1 }));
@@ -89,11 +89,11 @@ export default function GameMainPage() {
             // Determine the final winner after all rounds
             const finalWinner = score.userScore > score.computerScore 
                 ? 'User'
-                : score.userScore < score.computerScore 
-                    ? 'Computer'
-                    : 'No one';
-
+                : 'Computer'
             setWinner(finalWinner);
+            if(score.userScore===score.computerScore){
+                setWinner("No one")
+            }
         }
     };
 
@@ -103,8 +103,8 @@ export default function GameMainPage() {
             return 'Rock';
         } else if (imageURL.includes('Paper')) {
             return 'Paper';
-        } else if (imageURL.includes('Scissors')) {
-            return 'Scissors';
+        } else if (imageURL.includes('Scissor')) {
+            return 'Scissor';
         }
         return '';
     };
