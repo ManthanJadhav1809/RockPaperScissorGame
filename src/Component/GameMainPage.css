@@ -1,0 +1,216 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+/* GameMainPage.css */
+
+/* Global styles */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif; /* Google Font */
+    background: #ecf0f1; /* Light background color for the page */
+}
+
+/* Container styles */
+.game-container {
+    text-align: center;
+    margin: 20px auto;
+    padding: 20px;
+    background: #fff; /* White background for the game container */
+    border-radius: 12px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Slightly darker shadow */
+    max-width: 600px; /* Max width for responsiveness */
+    border: 2px solid #3498db; /* Blue border for container */
+}
+
+/* Image container styles */
+.image-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px; /* Space between images */
+    margin-bottom: 20px;
+}
+
+/* Image styles */
+.image-container img {
+    width: 200px;
+    border: 6px solid #333; /* Thicker border */
+    border-radius: 12%;
+    padding: 10px;
+    margin: 10px 20px;
+    background: #fff;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.image-container img:hover {
+    transform: scale(1.1); /* Zoom effect on hover */
+}
+/* Shake animation */
+.shake {
+    animation: shake 0.5s ease-in-out;
+}
+
+@keyframes shake {
+    0% { transform: rotate(0deg); }
+    25% { transform: rotate(-10deg); }
+    50% { transform: rotate(10deg); }
+    75% { transform: rotate(-10deg); }
+    100% { transform: rotate(0deg); }
+}
+  
+  /* Box shadow for winner */
+  .winner {
+    box-shadow: 19px 10px 2px rgb(10 10 10 / 30%)
+    
+}
+  
+/* Text animation */
+.round-winner, .game-winner {
+    font-weight: bold;
+    animation: fadeIn 1s ease-out; /* Fade-in animation */
+}
+
+/* Round winner styles */
+.round-winner {
+    color: #555;
+    margin-top: 10px;
+}
+
+/* Game winner styles */
+.game-winner {
+    font-size: 2.5em; /* Larger font size */
+    color: #e74c3c; /* Red color for game winner */
+    margin-top: 20px;
+}
+
+/* Button container styles */
+.button-container {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+/* Button styles */
+.btnOption {
+    background: #3498db; /* Blue background for buttons */
+    color: #fff; /* White text color */
+    border: none;
+    border-radius: 5px;
+    padding: 12px 24px; /* Increased padding */
+    font-size: 1.1em; /* Larger font size */
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.3s ease;
+    text-transform: uppercase; /* Uppercase text */
+}
+
+.btnOption:hover {
+    background: #2980b9; /* Darker blue on hover */
+    transform: scale(1.05); /* Slight scaling on hover */
+}
+
+.btnOption:disabled {
+    background: #bdc3c7; /* Disabled button color */
+    cursor: not-allowed;
+}
+
+/* Keyframe animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .image-container {
+        flex-direction: row; /* Stack images vertically on smaller screens */
+        gap: 10px;
+    }
+
+    .image-container img {
+        width: 100px; /* Smaller image size for mobile */
+    }
+
+    .button-container {
+        flex-wrap: wrap; 
+        gap: 10px;
+    }
+}
+
+/* Score.css */
+#scoreContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border: 2px solid #3498db; /* Blue border for score container */
+}
+
+.score-left {
+    flex: 1;
+    text-align: left;
+}
+
+.score-left h3 {
+    margin: 0;
+    padding: 5px;
+    color: #2c3e50; /* Darker color for text */
+}
+
+.score-right {
+    flex: 1;
+    text-align: right;
+}
+
+.score-right table {
+    text-align: center;
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.score-right th,
+.score-right td {
+    padding: 12px; /* Increased padding */
+    border: 1px solid #ddd;
+    text-align: center;
+}
+
+.score-right th {
+    background-color: #3498db; /* Blue background for table header */
+    color: white; /* White text color */
+}
+
+.score-right td {
+    text-align: center;
+    color: #2c3e50; /* Darker color for text */
+}
+
+@media (max-width: 768px) {
+    #scoreContainer {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .score-left,
+    .score-right {
+        width: 100%;
+        text-align: center;
+        font-size: small;
+    }
+
+    
+    h1{
+        font-size: large;
+    }
+    .game-winner{
+        font-size: 1.5em;
+    }
+}
